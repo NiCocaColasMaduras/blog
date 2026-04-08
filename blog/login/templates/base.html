@@ -1,0 +1,37 @@
+ <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default title{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "styles.css" %}" />
+</head>
+<body>
+    <div id="wrapper">
+		<div id="header">
+			<div id="menu">
+				<a href="/">Главная</a>
+				<a href="/users">Пользователи</a>
+				<a href="/roles">Роли</a>
+			</div>
+		</div>
+
+		<div id="container">
+			{% if show_sidebar %}
+				<div id="sidebar">
+					sidebar
+				</div>
+			{% endif %}
+
+			<div id="content" {% if not show_sidebar %}style="width: 100%;"{% endif %}>
+				{% block content %}content{% endblock content %}
+			</div>
+		</div>
+
+		<div id="footer">
+			footer
+		</div>
+	</div>
+</body>
+</html>

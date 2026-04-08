@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Роли{% endblock title %}
+
+{% block content %}
+    <table>
+        <th>Название</th>
+        <th></th>
+        <th></th>
+        {% for role in roles %}
+            <tr>
+                <td>{{ role.title }}</td>
+                <td><a href="editrole/{{role.id}}">Редактировать</a></td>
+                <td><a href="deleterole/{{role.id}}">Удалить</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="/add_role">Добавить роль</a>
+{% endblock content %}

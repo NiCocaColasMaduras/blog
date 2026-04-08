@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Пользователи{% endblock title %}
+
+{% block content %}
     <table>
         <th>ID</th>
         <th>Логин</th>
@@ -13,16 +9,22 @@
         <th>Фамилия</th>
         <th>Возраст</th>
         <th>Баланс</th>
+        <th>Роль</th>
+        <th></th>
+        <th></th>
         {% for user in users %}
-        <tr>
-            <td>{{ user.id }}</td>
-            <td>{{ user.login }}</td>
-            <td>{{ user.first_name }}</td>
-            <td>{{ user.last_name }}</td>
-            <td>{{ user.age }}</td>
-            <td>{{ user.balance }}</td>
-        </tr>
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.login }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ user.last_name }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.balance }}</td>
+                <td>{{ user.role }}</td>
+                <td><a href="edituser/{{user.id}}">Редактировать</a></td>
+                <td><a href="deleteuser/{{user.id}}">Удалить</a></td>
+            </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+    <a href="/add_user">Добавить ползователя</a>
+{% endblock content %}
