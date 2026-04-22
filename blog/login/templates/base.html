@@ -11,12 +11,17 @@
     <div id="wrapper">
 		<div id="header">
 			<div id="menu">
-				<a href="/">Главная</a>
-				<a href="/users">Пользователи</a>
-				<a href="/roles">Роли</a>
+				<a href="/login">Войти</a>
+				<a href="/add_user">Регистрация</a>
+
+				{% if user %}
+					<a href="/">Главная</a>
+					<a href="/users">Пользователи</a>
+					<a href="/roles">Роли</a>
+    				<a href="/logout">Выйти</a>
+    			{% endif %}
 			</div>
 		</div>
-
 		<div id="container">
 			{% if show_sidebar %}
 				<div id="sidebar">

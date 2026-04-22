@@ -3,6 +3,8 @@ from login import views
 
 urlpatterns = [
     path('', views.index),
+    path('login/', views.login),
+    path('logout/', views.logout_view),
 
     path('add_user/', views.add_user),
     path('users/', views.users),
@@ -14,4 +16,6 @@ urlpatterns = [
     path('editrole/<int:id_role>', views.edit_role),
     path('deleterole/<int:id_role>', views.delete_role),
 
+    path('page1/', views.for_authorized),
+    path('page2/', views.for_director),
 ]
